@@ -65,6 +65,14 @@ The parameters governing a given simulation are specified here. These parameters
     <td>JmaxV</td>
     <td>vector of productivity zones (Jmax gradient) must be same length as numbe of sites</td>
   </tr>
+   <tr>
+    <td>NegExpEx</td>
+    <td>if TRUE extinction is modeled as a negaitive exponential function</td>
+  </tr>
+    <tr>
+    <td>exparm</td>
+    <td>if NegExpEx is TRUE this is the negative exponential parameter for extinciton</td>
+  </tr>
   <tr>
    <td>split</td>
     <td>a small portion (10%) of the parent species will split off and migrate, default = TRUE</td>
@@ -93,7 +101,7 @@ The output files produced are listed below.
 <table>
   <tr>
     <td>SIMULATION OUTPUT:</td>
-    <td>an object I call res</td>
+    <td>a list of results</td>
   </tr>
   <tr>
     <td></td>
@@ -133,7 +141,7 @@ The output files produced are listed below.
   </tr>
   <tr>
     <td></td>
-    <td>exsp:   vector of extinct species</td>
+    <td>exsp:    matrix lists of extinct species per site </td>
   </tr>
 </table>
 
