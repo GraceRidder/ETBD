@@ -27,11 +27,11 @@ The parameters governing a given simulation are specified here. These parameters
   </tr>
   <tr>
     <td>pallo</td>
-    <td>probability of allopatric spectiaion, only works if probleave is more than 0</td>
+    <td>probability of allopatric spectiaion, only works if 'probleave' is more than 0</td>
   </tr>
   <tr>
     <td>psymp</td>
-    <td>probability of sympatric specation"</td>
+    <td>probability of sympatric specation</td>
   </tr>
   <tr>
     <td>SAD</td>
@@ -39,7 +39,7 @@ The parameters governing a given simulation are specified here. These parameters
   </tr>
   <tr>
     <td>GEO</td>
-    <td>if true indicates a geometric species abundnace distribution</td>
+    <td>if TRUE indicates a geometric species abundnace distribution</td>
   </tr>
   <tr>
     <td>LOGNORM</td>
@@ -66,8 +66,93 @@ The parameters governing a given simulation are specified here. These parameters
     <td>vector of productivity zones (Jmax gradient) must be same length as numbe of sites</td>
   </tr>
   <tr>
+   <td>split</td>
+    <td>a small portion (10%) of the parent species will split off and migrate, default = TRUE</td>
+  </tr>
+  <tr>
+     <td>bud</td>
+    <td>if TRUE a small portion (10%) of the parent species will emerge leaving the origianl population of the parent species the same</td>
+  </tr>
     <td>isGrid</td>
     <td>if TRUE the space configuration turns from linear to a grid conected with chebyshev distance</td>
   </tr>
 </table>
+
+
+
+
+
+
+
+
+##simulation output 
+
+
+The output files produced are listed below.
+
+<table>
+  <tr>
+    <td>SIMULATION OUTPUT:</td>
+    <td>an object I call res</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>tree:   final tree</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>trees:   collection of every tree for time step</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>matrix_list:   final matrix of species locations and abundanecs</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>mig:   collection of matrix lists for every time step</td>  
+  </tr>
+  <tr>
+    <td></td>
+    <td>extincts:   list of all species that have gone extinct.</td>  
+  </tr>
+  <tr>
+    <td></td>
+    <td>allop:   matrix list of all species that allopatrically speciated</td>  
+  </tr>
+  <tr>
+    <td></td>
+    <td>symp:   matrix list of all species that have sympatrically speciated </td>  
+  </tr>
+  <tr>
+    <td></td>
+    <td>allotrip:   list of every allopatrically speciating species per time step</td>  
+  </tr>
+  <tr>
+    <td></td>
+    <td>symptrip:   list of every sympatrically speciating species per time step</td>  
+  </tr>
+  <tr>
+    <td></td>
+    <td>exsp:   vector of extinct species</td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
