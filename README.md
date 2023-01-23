@@ -6,7 +6,7 @@ ETBD simulation
 Requirements: R 3.0 or greater with the following packages installed and the following scripts sourced:
 
 ```R
-package.vector = c('ape','caper','phyltools','plyr','picante','geiger','MASS','sads','stringr')
+package.vector = c('ape','caper','phyltools','plyr','picante','geiger','MASS','sads','stringr', 'coda')
 install.packages(package.vector)
 source('code/run_sim.r')
 source('code/analyze_sim.r')
