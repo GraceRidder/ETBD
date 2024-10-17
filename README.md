@@ -8,11 +8,7 @@ Requirements: R 3.0 or greater with the following packages installed and the fol
 ```R
 package.vector = c('ape','caper','phyltools','plyr','picante','geiger','MASS','sads','stringr', 'coda')
 install.packages(package.vector)
-source('code/run_sim.r')
-source('code/analyze_sim.r')
-source('code/senc_sim_fun.r')
-source('code/senc_analysis_fun.r')
-source('code/supplemental_analysis_functions.r')
+
 ```
 
 
