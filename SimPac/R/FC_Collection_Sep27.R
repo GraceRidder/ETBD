@@ -7,7 +7,6 @@ library(sads)
 library(MASS)
 
 
-
 #helper function for solving the geometric SAD
 ######################################################
 geometricBrentsolver=function(S, #number of species
@@ -18,7 +17,7 @@ geometricBrentsolver=function(S, #number of species
 {
   #function to be solved
   fn=function(r) Nmin*((1-r^S)/(1-r))-J
-  
+
   #looking for more appropriate bounds
   if (fn(bounds[1])>0){
     repeat{
@@ -35,10 +34,10 @@ geometricBrentsolver=function(S, #number of species
                predict_J=(Nmin*(1-root$root^S)/(1-root$root)), #J prediction based on parameters (to check numerical errors)
                bounds=bounds #final bounds
   )
-  
+
   #result
   return(results)
-  
+
 }
 
 
@@ -46,41 +45,41 @@ geometricBrentsolver=function(S, #number of species
 #with names successively filled by 1 and 2
 speciateatx=function(tr, tip){
   #creates a subtree of size 2 and length 1 to be binded into phylogeny
-  subtreetobind=rtree(2,br=c(1,1), tip.label = c(paste(tip,2,sep=""),paste(tip,1,sep="")))
+  subtreetobind=ape::rtree(2,br=c(1,1), tip.label = c(paste(tip,2,sep=""),paste(tip,1,sep="")))
   #binding
-  tr=bind.tree(tr,subtreetobind,where=which(tr$tip.label==tip))
+  tr=ape::bind.tree(tr,subtreetobind,where=which(tr$tip.label==tip))
   return(tr)
 }
 
 surviveatx=function(tr, tip){
   #creates a subtree of size 1 and length 1 to be binded to phylogeny
-  subtreetobind=rtree(2,br=c(1,1), tip.label = c(paste(tip),paste(tip)))
-  onetiptobind=drop.tip(subtreetobind,1)
+  subtreetobind=ape::rtree(2,br=c(1,1), tip.label = c(paste(tip),paste(tip)))
+  onetiptobind=ape::drop.tip(subtreetobind,1)
   #binding
-  tr=bind.tree(tr,onetiptobind,where=which(tr$tip.label==tip))
+  tr=ape::bind.tree(tr,onetiptobind,where=which(tr$tip.label==tip))
   return(tr)
 }
 
 
 speciateatXX=function(tr, tip){
   #creates a subtree of size 2 and length 1 to be binded into phylogeny
-  subtreetobind=rtree(2,br=c(1,1), tip.label = c(paste(tip,sep=""),paste(twix, sep="")))
+  subtreetobind=ape::rtree(2,br=c(1,1), tip.label = c(paste(tip,sep=""),paste(twix, sep="")))
   #binding
-  tr=bind.tree(tr,subtreetobind,where=which(tr$tip.label==tip))
+  tr=ape::bind.tree(tr,subtreetobind,where=which(tr$tip.label==tip))
   return(tr)
 }
 
 
-##make a list of possible existing species +1 
-ten <- c(1:9) 
+##make a list of possible existing species +1
+ten <- c(1:9)
 
 repeat{
   extra <- c()
   for (r in 1:length(ten)){
     extra <- append(extra, paste('0', ten[r], sep = ""))
   }
-  
-  ten <- c(1:9, extra) 
+
+  ten <- c(1:9, extra)
   if( length(ten) > 130){
     break
   }
@@ -112,13 +111,16 @@ unmatrixlist <- function(x){
     for (k in 1:length(x[[o]])){
       if (length(x[[o]]) > 0){
         choo <- append(choo, row.names(x[[o]])[k])
-        
+
       }
-      
+
     }
   }
   return(choo)
 }
+
+
+
 
 
 trip2 = NULL

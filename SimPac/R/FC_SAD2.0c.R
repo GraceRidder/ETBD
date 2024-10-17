@@ -1,3 +1,4 @@
+
 #SAD generators
 library(sads)
 
@@ -16,10 +17,6 @@ MakeSAD = function(matlist, sadmarg, Jmax){
   }
 
   S <- SV
-
-#  f <- function(S) {
-#    Jmax * (S / (100 + S))
-#  }
 
 
   J <- c()
@@ -80,29 +77,34 @@ happyls_sads=function(S,
 )
 {
   repeat{
-    newabund=rls(n = S,N = J,alpha = alpha)
+    newabund=sads::rls(n = S,N = J,alpha = alpha)
     if(sum(newabund) < J+(J*reltol) && sum(newabund) > J-(J*reltol)) break
   }
   return(newabund)
 }
 
 
+
 newabund <- matlist
 for (i in 1:length(matlist)) {
+  if (J[i] != 0){
   newabund[[i]] = happyls_sads(S[i], J[i], alpha[i], reltol)
   newabund[[i]] <- sort(newabund[[i]], decreasing = T)
+  }
 }
-
-
 
 #attribute new sizes
 ### if species have the same abundance they are randomly placed in different ranks (within the original rank zone)
 rankab <- matlist
 speciesrank <- matlist
 for (i in 1:length(matlist)){
+if (J[i] != 0){
   speciesrank[[i]] =rank(-matlist[[i]], ties.method = "random")
   rankab[[i]]<- newabund[[i]][speciesrank[[i]]]
 }
+}
+
+
 
 mat <- matlist
 for (i in 1:length(matlist)){
@@ -115,9 +117,6 @@ for (i in 1:length(matlist)){
 return(mat)
 
 }
-
-
-
 
 
 
