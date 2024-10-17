@@ -1,11 +1,16 @@
 
-library(ETBDsim)
+library(devtools)
+
+install_github("GraceRidder/ETBD/SimPac")
 
 
-#### Example script on how to run the ETBD simulator 
+library(SimPac)
 
 
-#### the following will run an example of population size dependent speciation. 
+#### Example script on how to run the ETBD simulator
+
+
+#### the following will run an example of population size dependent speciation.
 
 res1 = simETBD(
   t =200,
@@ -13,13 +18,13 @@ res1 = simETBD(
   JmaxV = 2000,
   ### negative exponential extinction ###
   NegExpEx = F,   ### turns it on
-  exparm = -.7,   ### curveature of extinction function 
-  psymp = .35,    ### constant speciation 
+  exparm = -.7,   ### curveature of extinction function
+  psymp = .35,    ### constant speciation
   ### negative exponential speciation ###
   ExpSp = T,      ### turns it on
   ExpSpParm = 1.6,  #### strength of the speciation
   constantEX = .005, #### constant extinction
-  splitparm = .5, ### speciation symmetry 
+  splitparm = .5, ### speciation symmetry
 )
 
 ##read the newik
@@ -30,11 +35,11 @@ myTree$Nnode
 ###plot the phylogeny
 plot(myTree, show.tip.label = F)
 
-###plot the phylogeny without extinction 
+###plot the phylogeny without extinction
 plot(paleotree::dropExtinct(myTree), show.tip.label = F)
 
 
-###plot the species richness though time 
+###plot the species richness though time
 rich <- c()
 for (i in 1:length(res1$matrix_lists)){
   rich <- append(rich,length(res1$matrix_lists[i][[1]][[1]][,1]))
@@ -48,9 +53,9 @@ hist(res1$matrix_lists[[20]][[1]][,1], main = "SAD", xlab = "abundance")
 
 
 
-#### the following will run an example of population size dependent extinction 
+#### the following will run an example of population size dependent extinction
 
-## WARNING this is much slower because in this case extinction speeds up (and so does speciairton) 
+## WARNING this is much slower because in this case extinction speeds up (and so does speciairton)
 ## generating many more species and many more general events
 
 res1 = simETBD(
@@ -59,13 +64,13 @@ res1 = simETBD(
   JmaxV = 2000,
   ### negative exponential extinction ###
   NegExpEx = T,   ### turns it on
-  exparm = -.7,   ### curveature of extinction function 
-  psymp = .35,    ### constant speciation 
+  exparm = -.7,   ### curveature of extinction function
+  psymp = .35,    ### constant speciation
   ### negative exponential speciation ###
   ExpSp = F,      ### turns it on
   ExpSpParm = 1.6,  #### strength of the speciation
   constantEX = .005, #### constant extinction
-  splitparm = .5, ### speciation symmetry 
+  splitparm = .5, ### speciation symmetry
 )
 
 ##read the newik
@@ -77,13 +82,13 @@ myTree$Nnode
 ###plot the phylogeny
 plot(myTree, show.tip.label = F)
 
-###plot the phylogeny without extinction 
+###plot the phylogeny without extinction
 plot(paleotree::dropExtinct(myTree), show.tip.label = F)
 
 ###how many nodes are on the phylogeny (without the extinct species)
 paleotree::dropExtinct(myTree)$Nnode
 
-###plot the species richness though time 
+###plot the species richness though time
 rich <- c()
 for (i in 1:length(res1$matrix_lists)) {
   rich <- append(rich, length(res1$matrix_lists[i][[1]][[1]][, 1]))
