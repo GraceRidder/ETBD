@@ -1,5 +1,8 @@
+library(devtools)
+install_github("GraceRidder/ETBD/SimPac")
 
-library(ETBDsim)
+library(SimPac)
+
 
 
 #### Example script on how to run the ETBD simulator 
