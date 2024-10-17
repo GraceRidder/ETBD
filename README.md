@@ -11,6 +11,14 @@ install.packages(package.vector)
 
 ```
 
+Installation with devtools
+
+```R
+library(devtools)
+install_github("GraceRidder/ETBD/SimPac")
+library(SimPac)
+
+```
 
 
 
