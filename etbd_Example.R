@@ -1,6 +1,7 @@
 #### Example script on how to run the ETBD simulator
 
 
+install.packages("~/Desktop/ETBD.tar.xz", repos = NULL)
 #### the following will run an example of population size dependent speciation.
 
 res1 = simETBD(

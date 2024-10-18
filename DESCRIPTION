@@ -2,8 +2,8 @@ Package: ETBD
 Type: Package
 Title: Make simulations of the Equilibrium Theory of Biodiversity Dynamics 
 Version: 0.1.0
-Author: Grace Ridder
-Maintainer: The package maintainer <grraceiridder@gmail.com>
+Author: ANONYMOUS
+Maintainer: The package maintainer <ANONYMOUS>
 Description: Contains a simulator for population size dependent diversification.
 License: What license is it under?
 Encoding: UTF-8
