@@ -5,7 +5,7 @@ Installation with devtools
 
 ```R
 library(devtools)
-install_github("GraceRidder/ETBD/SimPac")
+install_github("GraceRidder/ETBD")
 library(SimPac)
 
 ```

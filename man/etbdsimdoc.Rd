@@ -4,7 +4,7 @@
 \title{Generates ETBD simulation 
 %%  ~~function to do ... ~~
 }
-\description{ Simulates population size dependnet speciatino or extinction dynamics in species richness and phylogenetic trees.
+\description{ Simulates population size dependnet speciation or extinction dynamics in species richness and phylogenetic trees.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
