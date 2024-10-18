@@ -1,1 +1,8 @@
 exportPattern("^[[:alpha:]]+")
+
+import(sads)
+import(geiger)
+import(phytools)
+import(ape)
+import(stringer)
+import(MASS)
