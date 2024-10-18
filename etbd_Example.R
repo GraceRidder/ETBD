@@ -1,8 +1,3 @@
-library(devtools)
-install_github("GraceRidder/ETBD/")
-
-
-
 #### Example script on how to run the ETBD simulator
 
 
